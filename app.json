@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/launch",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/index/citys"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "静静天气",
+    "navigationBarTextStyle": "black"
+  }
+}

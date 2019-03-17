@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class='wrap'>
+    <view wx:if="{{forecastData}}" class='body-data'>
+      <view class='current-day'>
+        <image class='menu' src="../../resources/images/menu.png" bindtap='goToCitys'></image>
+        <view class='current-day-top'>
+          <view class='cityName'>{{weatherData[0].location.name}}</view>
+          <view class='temperature'>{{weatherData[0].now.temperature}}°</view>
+          <view class='air-group'>
+            <image class='weather-icon' src="../../resources/images/weather_icon/{{weatherData[0].now.code}}.png"></image><text class='weather-text'> {{weatherData[0].now.text}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class='forecast'>
+        <view wx:for="{{forecastData[0].daily}}" wx:key="unique" class='forecast-item'>
+          <view class='option-day'>{{dailyText[index]}}</view>
+          <view class='weather-detail-group'>
+            <view class='weather-detail detail-first'>
+              <image src="../../resources/images/weather_icon/{{forecastData[0].daily[index].code_day}}.png"></image>
+              <text class='weather-detail-text'> {{forecastData[0].daily[index].text_day}}</text>
+            </view>
+            <view class='weather-detail'>
+              <text  class='weather-detail-text'>{{forecastData[0].daily[index].text_night}}</text>
+              <image src="../../resources/images/weather_icon/{{forecastData[0].daily[index].code_night}}.png"></image>
+            </view>
+          </view>
+          <view class='temperature'>{{forecastData[0].daily[index].high}}/{{forecastData[0].daily[index].low}}°C</view>
+        </view>
+      </view>
+     
+     <view class='suggestion'>
+        <view class='sugg_item_wrap'>
+          <view wx:for='{{suggestionData}}' wx:key="unique" class='sugg_item'>
+            <view class='sugg_title'>{{suggestionData[index].brief}}</view>
+            <view class='sugg_name'>{{suggNameArr[index]}}</view>
+          </view>
+        </view>
+     </view>
+    <view class='footer'>数据来源于心知天气</view>
+     
+    </view>
+
+</view>
